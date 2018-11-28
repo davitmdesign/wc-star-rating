@@ -6,7 +6,7 @@ Webcomponent for displaying star ratings <star-rating> without other dependecies
 
 ## Installation
 
-Import the WebComponent in your <head> section.
+Import the WebComponent in your "head" section.
 
 `<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">`
 
