@@ -4,12 +4,11 @@
 
 Webcomponent for displaying star ratings <star-rating> without other dependecies.
 
-
 ## Installation
 
 Import the WebComponent in your <head> section.
 
-`<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/index.html">`
+`<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">`
 
 You can use the Github Static Pages (href) or clone the repository for your local environments.
 
@@ -23,15 +22,19 @@ That's it.
 
 ## Possible attributes
 
-Example:
 width="400" | percent="90" | stars="4.5" | colors="#aaa,#333"
+
+Example: `<star-rating width="100" stars="4.5" colors="#ddd,#f1cb1"></star-rating>`
+
+Example: `<star-rating width="200" percent="50" colors="#ddd,#f1cb1"></star-rating>`
+
 
 | attributes        |     values                        |   default      |
 | ----------------- |-----------------------------------|----------------|
 | width             | numeric (200)                     | 100            |
 | percent           | numeric (50)                      | 100            |
 | stars             | numeric (4 4.5 4,2)               | 5              |
-| colors            | hex or name (#ffff00,grey)        | #ddd,#f1cb14   |
+| colors            | name or hex (grey,#ffff00)        | #ddd,#f1cb14   |
 
 
 # Contributing
