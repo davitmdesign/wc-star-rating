@@ -1,6 +1,7 @@
-# WebComponent Star Rating
-
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
+
+
+# WebComponent Star Rating
 
 Webcomponent for displaying star ratings <star-rating> without other dependecies.
 
