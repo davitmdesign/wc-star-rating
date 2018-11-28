@@ -5,7 +5,8 @@
 Webcomponent for displaying star ratings <star-rating> without other dependecies.
 
 ## Demo
-[Demo Page](https://davitmdesign.github.io/wc-star-rating/index.html)
+
+[Demo and Playground Page](https://davitmdesign.github.io/wc-star-rating/index.html)
 
 ## Installation
 

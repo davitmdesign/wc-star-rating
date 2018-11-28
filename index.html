@@ -3,18 +3,86 @@
   <head>
     <meta charset="utf-8">
     <title>Demo Star Ratings</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
     <link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
+    <style media="screen">
+        .form__field,xmp{margin-bottom:20px}body{max-width:1280px;margin:1% auto;font-family:Roboto,sans-serif;color:#555}#demo{display:flex;flex-direction:column;justify-content:center;align-items:center}label{display:inline-block;min-width:100px}[type=text]{padding:8px;font-size:14px;border:1px solid #ccc;border-radius:2px}h1,h2{text-align:center}.rating__demo{margin:40px 0;min-height:100px}  </head>
+    </style>
   </head>
   <body>
-    <!--
-    possible attributes
-      width="200" | default 100%
-      percent="50" | default 100
-      stars="4" (4.5 || 4,5) | default 5
-      colors="grey,yellow" (#aaa,#ffff00 || grey,#ffff00) | default #ddd,#f1cb14
-    -->
-    <star-rating width="100" stars="4.5" colors="#ddd,#f1cb1"></star-rating>
-    <br>
-    <star-rating width="200" percent="50" colors="#ddd,#f1cb1"></star-rating>
+    <div id="demo">
+      <h1>Star Rating Webcomponent</h1>
+
+      <div class="rating__demo">
+        <star-rating width="480" percent="50" colors="#ddd,#f1cb1"></star-rating>
+      </div>
+
+      <xmp id="code">
+       <star-rating width="480" percent="50" colors="#ddd,#f1cb1"></star-rating>
+      </xmp>
+
+      <div>
+        <h2>Playground</h2>
+
+        <div class="form__field">
+          <label>
+            width
+          </label>
+          <input class="form__input" type="text" name="width" value="" placeholder="480">
+        </div>
+
+        <div class="form__field">
+          <label>
+            percent
+          </label>
+          <input class="form__input" type="text" name="percent" value="" placeholder="50">
+        </div>
+
+        <div class="form__field">
+          <label>
+            stars
+          </label>
+          <input class="form__input" type="text" name="stars" value="" placeholder="4.5">
+        </div>
+
+        <div class="form__field">
+          <label>
+            colors
+          </label>
+          <input class="form__input" type="text" name="colors" value="" placeholder="#ddd,#f1cb14">
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <script type="text/javascript">
+      (function(){
+
+        const formInputs = document.getElementsByClassName('form__input');
+        const starRating = document.getElementsByTagName('star-rating');
+        const codeInput = document.getElementById('code');
+
+        for(let i = 0; i < formInputs.length; i++) {
+          formInputs[i].addEventListener("keyup", e => {
+            const val = e.currentTarget.value;
+            const nameAttr = e.currentTarget.getAttribute("name");
+            starRating[0].setAttribute(nameAttr, val);
+
+            const width = (formInputs[0].value.length > 0) ? ` width="${formInputs[0].value}"` : '';
+            const percent = (formInputs[1].value.length > 0) ? ` percent="${formInputs[1].value}"` : '';
+            const stars = (formInputs[2].value.length > 0) ? ` stars="${formInputs[2].value}"` : '';
+            const colors = (formInputs[3].value.length > 0) ? ` colors="${formInputs[3].value}"` : '';
+
+            const tagValue = `<star-rating${width}${percent}${stars}${colors}></star-rating>`;
+            codeInput.innerHTML = tagValue;
+
+          })
+        }
+      })();
+    </script>
+
   </body>
 </html>
