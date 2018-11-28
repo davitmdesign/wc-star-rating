@@ -1,0 +1,116 @@
+<template id="star-rating">
+  <style>
+    .svg-sprite {
+      display: none;
+      height: 0;
+      width: 0;
+      opacity: 0;
+    }
+    .rating {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    .rating li {
+      width: 100%;
+      height: auto;
+    }
+    svg {
+    }
+    .rating li:nth-of-type(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" hidden>
+    <symbol id="stars-grey">
+      <polygon class="colors-0" points="8.348 12.244 13.496 16 11.548 9.879 16.696 6.261 10.435 6.261 8.348 0 6.261 6.261 0 6.261 5.148 9.879 3.2 16" fill="#ddd"/>
+      <polygon class="colors-0" points="26.674 12.244 31.822 16 29.874 9.879 35.022 6.261 28.761 6.261 26.674 0 24.587 6.261 18.326 6.261 23.475 9.879 21.526 16" fill="#ddd"/>
+      <polygon class="colors-0" points="45 12.244 50.148 16 48.199 9.879 53.348 6.261 47.088 6.261 45 0 42.914 6.261 36.652 6.261 41.8 9.879 39.852 16" fill="#ddd"/>
+      <polygon class="colors-0" points="63.325 12.244 68.474 16 66.525 9.879 71.674 6.261 65.413 6.261 63.325 0 61.239 6.261 54.978 6.261 60.126 9.879 58.178 16" fill="#ddd"/>
+      <polygon class="colors-0" points="81.651 12.244 86.8 16 84.852 9.879 90 6.261 83.739 6.261 81.651 0 79.565 6.261 73.304 6.261 78.452 9.879 76.504 16" fill="#ddd"/>
+    </symbol>
+    <symbol id="stars-yellow">
+      <polygon class="colors-1" points="8.348 12.244 13.496 16 11.548 9.879 16.696 6.261 10.435 6.261 8.348 0 6.261 6.261 0 6.261 5.148 9.879 3.2 16" fill="#f1cb14"/>
+  		<polygon class="colors-1" points="26.674 12.244 31.822 16 29.874 9.879 35.022 6.261 28.761 6.261 26.674 0 24.587 6.261 18.326 6.261 23.475 9.879 21.526 16" fill="#f1cb14"/>
+  		<polygon class="colors-1" points="45 12.244 50.148 16 48.199 9.879 53.348 6.261 47.088 6.261 45 0 42.914 6.261 36.652 6.261 41.8 9.879 39.852 16" fill="#f1cb14"/>
+  		<polygon class="colors-1" points="63.325 12.244 68.474 16 66.525 9.879 71.674 6.261 65.413 6.261 63.325 0 61.239 6.261 54.978 6.261 60.126 9.879 58.178 16" fill="#f1cb14"/>
+  		<polygon class="colors-1" points="81.651 12.244 86.8 16 84.852 9.879 90 6.261 83.739 6.261 81.651 0 79.565 6.261 73.304 6.261 78.452 9.879 76.504 16" fill="#f1cb14"/>
+    </symbol>
+  </svg>
+  <ul class="rating">
+    <li>
+      <svg viewBox="0 0 90 16">
+        <use xlink:href="#stars-grey"></use>
+      </svg>
+    </li>
+    <li class="rating__clip">
+      <svg viewBox="0 0 90 16">
+        <use xlink:href="#stars-yellow"></use>
+      </svg>
+    </li>
+  </ul>
+</template>
+<script>
+  const DOC = (document._currentScript || document.currentScript).ownerDocument;
+  const RATINGSTARS_TPL = DOC.querySelector('#star-rating').content;
+  class RatingStarsClass extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({mode:'open'});
+      this.shadowRoot.appendChild(document.importNode(RATINGSTARS_TPL, true));
+      this.ratingElement = this.shadowRoot.querySelector('.rating');
+      this.ratingClip = this.shadowRoot.querySelector('.rating__clip');
+      this.starsGrey = this.shadowRoot.getElementById('stars-grey');
+    }
+    static get observedAttributes() {
+      return ['width','stars', 'percent', 'colors'];
+    }
+    get width() {
+      return this.getAttribute('width');
+    }
+    get stars() {
+      return this.getAttribute('stars');
+    }
+    get percent() {
+      return this.getAttribute('percent');
+    }
+    get colors() {
+      return this.getAttribute('colors');
+    }
+    calculateRectWidth(x,y) {
+      const ELEMENT_WIDTH = this.currentWidth || this.defaultWidth;
+      const RECT_WIDTH = ((ELEMENT_WIDTH*x)/y);
+      return `rect(0, ${RECT_WIDTH}px, ${RECT_WIDTH}px, 0)`;
+    }
+    fillPolygon() {
+      if(!!Array.isArray(this.currentColors)) {
+        for (var value of this.currentColors) {
+          const index = this.currentColors.indexOf(value);
+          const polygons = this.shadowRoot.querySelectorAll(`.colors-${index}`)
+          for(var i=0; i<polygons.length; i++) {
+            polygons[i].style.fill = value;
+          }
+        }
+      }
+    }
+    attributeChangedCallback(name, oldValue, newValue) {
+      if(this.width) {
+        this.currentWidth = this.width;
+        this.ratingElement.style.width = `${this.currentWidth}px`;
+      }
+      if(this.percent) {
+        this.ratingClip.style.clip = this.calculateRectWidth(this.percent,100);
+      }
+      if(this.stars) {
+        this.ratingClip.style.clip = this.calculateRectWidth(this.stars.replace(",", "."),4.96);
+      }
+      if(this.colors) {
+        this.currentColors = this.colors.split(",");
+        this.fillPolygon();
+      }
+    }
+  }
+  window.customElements.define('star-rating', RatingStarsClass);
+</script>
