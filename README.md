@@ -13,13 +13,17 @@ Webcomponent for displaying star ratings <star-rating> without other dependecies
 
 Paste the import link in your "head" section.
 
-`<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">`
+```html
+<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
+```
 
 ## Usage
 
 To display the stars, you must place the element.
 
-`<star-rating></star-rating>`
+```html
+<star-rating></star-rating>
+```
 
 That's it.
 
@@ -27,9 +31,23 @@ That's it.
 
 width="400" | percent="90" | stars="4.5" | colors="#aaa,#333"
 
-Example: `<star-rating width="100" stars="4.5" colors="#ddd,#f1cb1"></star-rating>`
+Example:
 
-Example: `<star-rating width="200" percent="50" colors="#ddd,#f1cb1"></star-rating>`
+<!---
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<star-rating width="160" percent="50"></star-rating>
+<star-rating width="220" stars="4" colors="grey,red"></star-rating>
+<star-rating width="300" stars="4.5" colors="#BDBDBD,#B8860B"></star-rating>
+```
 
 
 | attributes        |     values                        |   default      |
@@ -47,19 +65,3 @@ Example: `<star-rating width="200" percent="50" colors="#ddd,#f1cb1"></star-rati
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-<!---
-```
-<custom-element-demo>
-  <template>
-    <link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<star-rating width="160" percent="50"></star-rating>
-<star-rating width="220" stars="4" colors="grey,red"></star-rating>
-<star-rating width="300" stars="4.5" colors="#BDBDBD,#B8860B"></star-rating>
-```
