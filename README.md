@@ -11,11 +11,9 @@ Webcomponent for displaying star ratings <star-rating> without other dependecies
 
 ## Installation
 
-Import the WebComponent in your "head" section.
+Paste the import link in your "head" section.
 
 `<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">`
-
-You can use the Github Static Pages (href) or clone the repository for your local environments.
 
 ## Usage
 
@@ -49,3 +47,19 @@ Example: `<star-rating width="200" percent="50" colors="#ddd,#f1cb1"></star-rati
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<star-rating width="160" percent="50"></star-rating>
+<star-rating width="220" stars="4" colors="grey,red"></star-rating>
+<star-rating width="300" stars="4.5" colors="#BDBDBD,#B8860B"></star-rating>
+```
