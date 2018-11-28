@@ -1,6 +1,6 @@
 # WebComponent Star Rating
 
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)]
+[Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)
 
 Webcomponent for displaying star ratings <star-rating> without other dependecies.
 
@@ -8,7 +8,8 @@ Webcomponent for displaying star ratings <star-rating> without other dependecies
 ## Installation
 
 Import the WebComponent in your <head> section.
-<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/index.html">
+
+`<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/index.html">`
 
 You can use the Github Static Pages (href) or clone the repository for your local environments.
 
@@ -16,18 +17,21 @@ You can use the Github Static Pages (href) or clone the repository for your loca
 
 To display the stars, you must place the element.
 
-<star-rating></ star-rating>
+`<star-rating></star-rating>`
 
 That's it.
 
 ##Possible attributes
 
-width | percent | stars | colors
+Example:
+width="400" | percent="90" | stars="4.5" | colors="#aaa,#333"
 
-width="200" | default 100%
-percent="50" | default 100
-stars="4" (4.5 || 4,5) | default 5
-colors="grey,yellow" (#aaa,#ffff00 || grey,#ffff00) | default #ddd,#f1cb14
+| attributes        |     values                        |   default      |
+| ----------------- |-----------------------------------|----------------|
+| width             | numeric (200)                     | 100            |
+| percent           | numeric (50)                      | 100            |
+| stars             | numeric (4||4.5||4,2)             | 5              |
+| colors            | hex or name (grey,#ffff00)        | #ddd,#f1cb14   |
 
 
 # Contributing
