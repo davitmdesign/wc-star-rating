@@ -1,8 +1,11 @@
 # WebComponent Star Rating
 
-[Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)
+[! [Veröffentlicht auf webcomponents.org] (https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)] (https://www.webcomponents.org/element/davitmdesign/star-rating)
 
 Webcomponent for displaying star ratings <star-rating> without other dependecies.
+
+## Demo
+[Demo Page](https://davitmdesign.github.io/wc-star-rating/index.html)
 
 ## Installation
 
@@ -37,7 +40,7 @@ Example: `<star-rating width="200" percent="50" colors="#ddd,#f1cb1"></star-rati
 | colors            | name or hex (grey,#ffff00)        | #ddd,#f1cb14   |
 
 
-# Contributing
+## Contributing
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`
