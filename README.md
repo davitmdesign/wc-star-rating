@@ -1,10 +1,10 @@
 # WebComponent Star Rating
 
-[! [Veröffentlicht auf webcomponents.org] (https://img.shields.io/badge/webcomponents.org-published-blue.svg?style=flat-square)] (https://www.webcomponents.org/element/davitmdesign/star-rating)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 
 Webcomponent for displaying star ratings <star-rating> without other dependecies.
 
-## Demo
+## Demo Playground Page
 
 [Demo and Playground Page](https://davitmdesign.github.io/wc-star-rating/index.html)
 
