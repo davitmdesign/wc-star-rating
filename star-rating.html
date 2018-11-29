@@ -57,7 +57,9 @@
     </li>
   </ul>
 </template>
-<script>
+<script src="custom-elements.min.js" charset="utf-8"></script>
+<script src="shadydom.min.js" charset="utf-8"></script>
+<script charset="utf-8">
   const DOC = (document._currentScript || document.currentScript).ownerDocument;
   const RATINGSTARS_TPL = DOC.querySelector('#star-rating').content;
   class RatingStarsClass extends HTMLElement {
