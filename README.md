@@ -22,7 +22,7 @@ Paste the import link in your "head" section.
 To display the stars, you must place the element.
 
 ```html
-<star-rating width="160" score="2.5"></star-rating>
+<star-rating width="280" score="50%" colors="#ddd,#f1cb1"></star-rating>
 ```
 
 That's it.
