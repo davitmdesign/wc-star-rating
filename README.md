@@ -11,11 +11,18 @@ Webcomponent for displaying star ratings <star-rating> without other dependecies
 
 ## Installation
 
-Paste the import link in your "head" section.
+Easy: Paste the import link in your "head" section.
 
 ```html
 <link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
 ```
+
+Or.. Install with NPM for your local development environment.
+
+```
+npm i webcomponent-star-rating
+```
+
 
 ## Usage
 
