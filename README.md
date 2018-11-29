@@ -22,14 +22,14 @@ Paste the import link in your "head" section.
 To display the stars, you must place the element.
 
 ```html
-<star-rating></star-rating>
+<star-rating width="160" score="2.5"></star-rating>
 ```
 
 That's it.
 
 ## Possible attributes
 
-width="400" | percent="90" | stars="4.5" | colors="#aaa,#333"
+width="400" | score="50%" | colors="#aaa,#333"
 
 Example:
 
@@ -44,18 +44,17 @@ Example:
 ```
 -->
 ```html
-<star-rating width="160" percent="50"></star-rating>
-<star-rating width="220" stars="4" colors="grey,red"></star-rating>
-<star-rating width="300" stars="4.5" colors="#BDBDBD,#B8860B"></star-rating>
+<star-rating width="160" score="2.5"></star-rating>
+<star-rating width="220" score="4" colors="grey,red"></star-rating>
+<star-rating width="300" score="50%" colors="#BDBDBD,#B8860B"></star-rating>
 ```
 
 
-| attributes        |     values                        |   default      |
+| attributes        |     values                        |                |
 | ----------------- |-----------------------------------|----------------|
-| width             | numeric (200)                     | 100            |
-| percent           | numeric (50)                      | 100            |
-| stars             | numeric (4 4.5 4,2)               | 5              |
-| colors            | name or hex (grey,#ffff00)        | #ddd,#f1cb14   |
+| width             | 200                               | required       |
+| score             | 50%, 4 4.5 4,2                    | required       |
+| colors            | name or hex (grey,#ffff00)        | optional       |
 
 
 ## Contributing
