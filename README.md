@@ -53,7 +53,7 @@ Example:
 | attributes        |     values                        |                |
 | ----------------- |-----------------------------------|----------------|
 | width             | 200                               | required       |
-| score             | 50%, 4 4.5 4,2                    | required       |
+| score             | 50%, 3, 4.5                       | required       |
 | colors            | name or hex (grey,#ffff00)        | optional       |
 
 
