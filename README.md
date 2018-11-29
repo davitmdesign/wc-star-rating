@@ -23,7 +23,6 @@ Or.. Install with NPM for your local development environment.
 npm i webcomponent-star-rating
 ```
 
-
 ## Usage
 
 To display the stars, you must place the element.
