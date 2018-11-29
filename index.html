@@ -3,10 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Demo Star Ratings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
+    <link rel="import" href="star-rating.html">
+    <!--link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html"-->
     <style media="screen">
-        .form__field,xmp{margin-bottom:20px}body{max-width:1280px;margin:1% auto;font-family:Roboto,sans-serif;color:#555}#demo{display:flex;flex-direction:column;justify-content:center;align-items:center}label{display:inline-block;min-width:100px}[type=text]{padding:8px;font-size:14px;border:1px solid #ccc;border-radius:2px}h1,h2{text-align:center}.rating__demo{margin:40px 0;min-height:100px}  </head>
+        *{box-sizing: border-box;}.playground{background:#efefef;padding:10px;width:100%;display:flex;align-items:center;flex-direction:column;}
+        .form__field,#code{margin-bottom:20px;}#code{width:100%;text-align:center;padding:20px 10px;}body{max-width:1280px;margin:1% auto;padding:10px;font-family:Roboto,sans-serif;color:#555}#demo{display:flex;flex-direction:column;justify-content:center;align-items:center}label{display:inline-block;min-width:100px}[type=text]{padding:8px;font-size:14px;border:1px solid #ccc;border-radius:2px}h1,h2{text-align:center}.rating__demo{margin:40px 0;min-height:100px}  </head>
     </style>
   </head>
   <body>
@@ -14,48 +17,35 @@
       <h1>Star Rating Webcomponent</h1>
 
       <div class="rating__demo">
-        <star-rating width="480" percent="50" colors="#ddd,#f1cb1"></star-rating>
+        <star-rating width="280" score="4" colors="#ddd,#f1cb1"></star-rating>
       </div>
 
-      <xmp id="code">
-       <star-rating width="480" percent="50" colors="#ddd,#f1cb1"></star-rating>
-      </xmp>
-
-      <div>
+      <input type='text' id='code' name='' value='<star-rating width="280" score="50%" colors="#ddd,#f1cb1"></star-rating>'>
+      <div class="playground">
         <h2>Playground</h2>
 
         <div class="form__field">
           <label>
-            width
+            Width:
           </label>
-          <input class="form__input" type="text" name="width" value="" placeholder="480">
+          <input class="form__input" type="text" name="width" value="" placeholder="280">
         </div>
 
         <div class="form__field">
           <label>
-            percent
+            Score:
           </label>
-          <input class="form__input" type="text" name="percent" value="" placeholder="50">
+          <input class="form__input" type="text" name="score" value="" placeholder="50% || 4 || 3.5">
         </div>
 
         <div class="form__field">
           <label>
-            stars
-          </label>
-          <input class="form__input" type="text" name="stars" value="" placeholder="4.5">
-        </div>
-
-        <div class="form__field">
-          <label>
-            colors
+            Colors:
           </label>
           <input class="form__input" type="text" name="colors" value="" placeholder="#ddd,#f1cb14">
         </div>
       </div>
-
     </div>
-
-
 
 
     <script type="text/javascript">
@@ -72,12 +62,11 @@
             starRating[0].setAttribute(nameAttr, val);
 
             const width = (formInputs[0].value.length > 0) ? ` width="${formInputs[0].value}"` : '';
-            const percent = (formInputs[1].value.length > 0) ? ` percent="${formInputs[1].value}"` : '';
-            const stars = (formInputs[2].value.length > 0) ? ` stars="${formInputs[2].value}"` : '';
-            const colors = (formInputs[3].value.length > 0) ? ` colors="${formInputs[3].value}"` : '';
+            const score = (formInputs[1].value.length > 0) ? ` score="${formInputs[1].value}"` : '';
+            const colors = (formInputs[2].value.length > 0) ? ` colors="${formInputs[2].value}"` : '';
 
-            const tagValue = `<star-rating${width}${percent}${stars}${colors}></star-rating>`;
-            codeInput.innerHTML = tagValue;
+            const tagValue = `<star-rating${width}${score}${colors}></star-rating>`;
+            codeInput.value = tagValue;
 
           })
         }

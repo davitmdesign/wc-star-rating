@@ -1,9 +1,8 @@
 <template id="star-rating">
   <style>
-    ul,li {
+    ul, li {
       margin: 0;
       padding: 0;
-      list-style: none;
     }
     .svg-sprite {
       display: none;
@@ -19,6 +18,7 @@
     .rating li {
       width: 100%;
       height: auto;
+      overflow: hidden;
     }
     svg {
     }
@@ -70,24 +70,28 @@
       this.starsGrey = this.shadowRoot.getElementById('stars-grey');
     }
     static get observedAttributes() {
-      return ['width','stars', 'percent', 'colors'];
+      return ['width', 'score', 'colors'];
     }
     get width() {
       return this.getAttribute('width');
     }
-    get stars() {
-      return this.getAttribute('stars');
-    }
-    get percent() {
-      return this.getAttribute('percent');
+    get score() {
+      return this.getAttribute('score');
     }
     get colors() {
       return this.getAttribute('colors');
     }
-    calculateRectWidth(x,y) {
-      const ELEMENT_WIDTH = this.currentWidth || this.defaultWidth;
-      const RECT_WIDTH = ((ELEMENT_WIDTH*x)/y);
-      return `rect(0, ${RECT_WIDTH}px, ${RECT_WIDTH}px, 0)`;
+    setScore() {
+      if(this.score.indexOf('%') != -1) {
+        return `polygon(0 0, ${this.score} 0, ${this.score} 100%, 0% 100%)`;
+      } else {
+        if(this.score <=5) {
+          const calcPercent = ((100/5)*this.score);
+          return `polygon(0 0, ${calcPercent}% 0, ${calcPercent}% 100%, 0% 100%)`;
+        } else {
+          return `polygon(0 0, ${this.score}% 0, ${this.score}% 100%, 0% 100%)`;
+        }
+      }
     }
     fillPolygon() {
       if(!!Array.isArray(this.currentColors)) {
@@ -105,11 +109,8 @@
         this.currentWidth = this.width;
         this.ratingElement.style.width = `${this.currentWidth}px`;
       }
-      if(this.percent) {
-        this.ratingClip.style.clip = this.calculateRectWidth(this.percent,100);
-      }
-      if(this.stars) {
-        this.ratingClip.style.clip = this.calculateRectWidth(this.stars.replace(",", "."),4.96);
+      if(this.score) {
+        this.ratingClip.style.clipPath = this.setScore();
       }
       if(this.colors) {
         this.currentColors = this.colors.split(",");
