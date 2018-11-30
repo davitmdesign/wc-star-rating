@@ -1,4 +1,4 @@
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/webcomponent-star-rating)
 
 
 # Star Rating (native) WebComponent
@@ -11,21 +11,21 @@ Webcomponent (native) for displaying star ratings <star-rating> without Polymer 
 
 ## Installation
 
-Easy: Paste the import link in your "head" section.
-
-```html
-<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
-```
-
-Or.. Install with NPM for your local development environment.
+Install with NPM for your local development environment.
 
 ```
 npm i webcomponent-star-rating
 ```
 
+OR: Paste the import link in your "head" section.
+
+```html
+<link rel="import" href="https://davitmdesign.github.io/wc-star-rating/star-rating.html">
+```
+
 ## Usage
 
-To display the stars, you must place the element.
+To display the stars, you must place the element to your "body section".
 
 ```html
 <star-rating width="280" score="50%" colors="#ddd,#f1cb1"></star-rating>
