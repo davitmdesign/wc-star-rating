@@ -1,9 +1,9 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 
 
-# WebComponent Star Rating
+# Star Rating (native) WebComponent
 
-Webcomponent for displaying star ratings <star-rating> without other dependecies.
+Webcomponent (native) for displaying star ratings <star-rating> without Polymer or other dependecies.
 
 ## Demo/Playground
 
